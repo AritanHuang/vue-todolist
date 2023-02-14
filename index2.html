@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to-do-list2</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="message">
+        <button type="button" @click="addData">新增待辦</button>
+        <hr>
+        <ul>
+            <li v-for="(item, index) in list" :key="item.id">
+                {{item.message}}
+                <button type="button" @click="editData(item)">編輯待辦</button>
+                <button type="button" @click="removeData(item)">刪除待辦</button>
+            </li>
+        </ul>
+        <hr>
+        <div v-if="tempData.id">
+            <h3>待修改</h3>
+            <input type="text" v-model="tempData.message">
+            <button type="button" @click="confirm">確認修改</button>
+        </div>
+    </div>
+    <script type="module" src="index2.js"></script>
+</body>
+
+</html>
